@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagun Basnet | Finance & Compliance Professional</title>
+<meta name="description" content="Sagun Basnet, ACCA Finalist and Finance & Compliance Professional. Audit, donor compliance, financial reporting and financial systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #000000;
+    --bg-alt: #0a0a0a;
+    --ink: #eef4f9;
+    --ink-dim: #b7c3cc;
+    --ink-faint: #73818b;
+    --gold: #4fa8d8;
+    --gold-bright: #ffffff;
+    --green: #7ec4e8;
+    --line: #1c242b;
+    --card: #0c1116;
+    --danger-red: #7d4f4f;
+    --max: 1100px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth; font-size:20px;}
+
+  body{
+    background: var(--bg);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--gold);color:var(--bg);}
+
+  a{color:inherit;text-decoration:none;}
+
+  .mono{font-family:'Space Mono', monospace;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ===== nav ===== */
+  header.site-nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(11,13,10,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'Newsreader', serif;
+    font-size:1.3rem;
+    letter-spacing:0.04em;
+    font-weight:500;
+  }
+  .nav-mark span{color:var(--gold);}
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .nav-links a{transition:color .2s ease;position:relative;}
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-4px;
+    width:100%; height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:right;
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+  header.site-nav{transition:box-shadow .3s ease, border-color .3s ease;}
+  header.site-nav.scrolled{box-shadow:0 8px 24px -12px rgba(0,0,0,0.6); border-color:rgba(201,162,75,0.18);}
+  .scroll-progress{
+    position:fixed;
+    top:0; left:0;
+    height:2px;
+    background:linear-gradient(to right, var(--green), var(--gold));
+    width:0%;
+    z-index:200;
+    transition:width .1s linear;
+  }
+  .nav-links a:hover{color:var(--gold-bright);}
+  .nav-toggle{display:none;}
+
+  @media (max-width:720px){
+    .nav-links{display:none;}
+  }
+
+  /* ===== hero ===== */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding-top:80px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:0;right:6%;
+    width:1px;height:100%;
+    background:linear-gradient(to bottom, transparent, var(--line) 15%, var(--line) 85%, transparent);
+    opacity:0.6;
+  }
+  .hero h1{
+    font-family:'Newsreader', serif;
+    font-weight:400;
+    font-size:clamp(2.6rem, 7vw, 5.4rem);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    max-width:820px;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.25s;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+    font-weight:400;
+  }
+  .hero .role-line{
+    margin-top:26px;
+    font-size:1.2rem;
+    color:var(--ink-dim);
+    max-width:640px;
+    font-weight:300;
+    text-align:justify;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.4s;
+  }
+  .hero .meta-row{
+    margin-top:44px;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    max-width:600px;
+    opacity:0;
+    animation:rise .9s ease forwards;
+    animation-delay:.55s;
+  }
+  .glow-divider{position:relative; border-bottom:none !important;}
+  .glow-divider::after{
+    content:"";
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--green) 20%, var(--gold) 50%, var(--green) 80%, transparent);
+    opacity:0.35;
+    animation:divider-pulse 4s ease-in-out infinite;
+  }
+  .glow-divider:last-child::after{display:none;}
+  @keyframes divider-pulse{
+    0%,100%{opacity:0.22;}
+    50%{opacity:0.55;}
+  }
+
+  .meta-item{
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:14px 0;
+    min-width:0;
+  }
+  .meta-item .label{flex-shrink:0;}
+  .meta-item .label{
+    color:var(--ink-faint);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-size:0.68rem;
+  }
+  .meta-item .val{color:var(--ink); text-align:right; min-width:0; white-space:nowrap;}
+  .meta-item a.val:hover{color:var(--gold-bright);}
+  .resume-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:38px;
+    padding:13px 22px;
+    border:1px solid var(--gold);
+    color:var(--gold-bright);
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:background .3s ease, color .3s ease, transform .3s ease;
+  }
+  .resume-btn:hover{background:var(--gold); color:var(--bg); transform:translateY(-2px);}
+  .resume-btn-arrow{transition:transform .3s ease;}
+  .resume-btn:hover .resume-btn-arrow{transform:translateY(3px);}
+
+  .site-ribbon{
+    position:fixed;
+    top:0; right:0;
+    width:48%;
+    height:100vh;
+    pointer-events:none;
+    opacity:0.85;
+    z-index:0;
+  }
+  .ribbon-glow{
+    fill:none;
+    stroke:var(--green);
+    stroke-width:14;
+    stroke-linecap:round;
+    filter:blur(22px);
+    opacity:0.3;
+  }
+  .ribbon-line{
+    fill:none;
+    stroke:url(#ribbonGradient);
+    stroke-width:2.2;
+    stroke-linecap:round;
+  }
+  .ribbon-dot{
+    filter:blur(0.3px);
+  }
+  @media (max-width:900px){
+    .site-ribbon{width:70%; opacity:0.5;}
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:38px;left:32px;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .scroll-cue::after{
+    content:"";
+    width:1px;height:34px;
+    background:linear-gradient(to bottom, var(--ink-faint), transparent);
+    animation:pulse-line 2.2s ease infinite;
+  }
+
+  @keyframes rise{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @keyframes pulse-line{
+    0%,100%{opacity:0.3;}
+    50%{opacity:1;}
+  }
+
+  /* ===== section shell ===== */
+  section{
+    padding:120px 0;
+    position:relative;
+    border-top:1px solid var(--line);
+  }
+  #experience{
+    background:var(--bg);
+    z-index:1;
+  }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:60px;
+    position:relative;
+  }
+  .sec-head::after{
+    content:"";
+    position:absolute;
+    bottom:-20px; left:0;
+    height:1px;
+    width:0;
+    background:linear-gradient(to right, var(--gold), var(--green), transparent);
+    transition:width 1.1s cubic-bezier(.16,1,.3,1) .15s;
+  }
+  .reveal.in .sec-head::after{width:100%; animation:divider-pulse 4s ease-in-out 1.3s infinite;}
+  .sec-num{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    color:var(--gold);
+  }
+  .sec-title{
+    font-family:'Newsreader', serif;
+    font-weight:400;
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .sec-title em{font-style:italic; color:var(--gold-bright);}
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ===== about ===== */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-grid p{
+    color:var(--ink-dim);
+    font-size:1.1rem;
+    margin-bottom:20px;
+    text-align:justify;
+  }
+  .about-grid p strong{color:var(--ink); font-weight:500;}
+  .lang-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .lang-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:14px;
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    transition:padding-left .3s ease;
+  }
+  .lang-row:hover{padding-left:8px;}
+  .lang-row .level{color:var(--gold-bright);}
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr; gap:40px;}
+  }
+
+  /* ===== experience ===== */
+  .exp-entry{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap:40px;
+    padding:44px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .exp-entry:first-of-type{padding-top:0;}
+  .exp-entry:last-of-type{border-bottom:none;}
+  .exp-period{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+    letter-spacing:0.05em;
+  }
+  .exp-role{
+    font-family:'Newsreader', serif;
+    font-size:1.4rem;
+    font-weight:500;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .exp-org{
+    color:var(--gold);
+    font-size:0.95rem;
+    margin-bottom:20px;
+  }
+  .exp-org .place{color:var(--ink-faint); font-family:'Space Mono', monospace; font-size:0.78rem;}
+  .exp-entry ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+  }
+  .exp-entry li{
+    color:var(--ink-dim);
+    font-size:1.06rem;
+    padding-left:20px;
+    position:relative;
+    transition:color .25s ease, transform .25s ease;
+  }
+  .exp-entry li:hover{color:var(--ink); transform:translateX(3px);}
+  .exp-entry li::before{
+    content:"▪";
+    position:absolute;
+    left:0;
+    color:var(--green);
+    transition:color .25s ease;
+  }
+  .exp-entry li:hover::before{color:var(--gold-bright); text-shadow:0 0 8px var(--gold), 0 0 16px var(--gold);}
+  @media (max-width:720px){
+    .exp-entry{grid-template-columns:1fr; gap:14px;}
+  }
+
+  /* ===== skills ===== */
+  .skills-wrap{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap:64px;
+  }
+  .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.76rem;
+    padding:9px 14px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--ink-dim);
+    transition:border-color .25s ease, color .25s ease, transform .25s ease;
+  }
+  .skill-tag:hover{border-color:var(--gold); color:var(--gold-bright); transform:translateY(-2px);}
+  .systems-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:32px;
+  }
+  .systems-card h4{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:22px;
+  }
+  .sys-row{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    font-size:0.92rem;
+    color:var(--ink-dim);
+    transition:padding-left .3s ease, color .3s ease;
+  }
+  .sys-row:hover{padding-left:6px; color:var(--ink);}
+  .sys-row .dot{color:var(--green); font-family:'Space Mono', monospace; font-size:0.7rem; transition:transform .3s ease;}
+  .sys-row:hover .dot{transform:scale(1.4); color:var(--gold-bright); display:inline-block;}
+  @media (max-width:820px){
+    .skills-wrap{grid-template-columns:1fr;}
+  }
+
+  /* ===== education ===== */
+  .edu-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .edu-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:30px;
+    padding:26px 0;
+    transition:padding-left .3s ease;
+  }
+  .edu-item:hover{padding-left:10px;}
+  .edu-year{
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-faint);
+  }
+  .edu-name{
+    font-family:'Newsreader', serif;
+    font-size:1.15rem;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .edu-inst{color:var(--ink-dim); font-size:0.98rem;}
+
+  /* ===== projects ===== */
+  .proj-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:28px;
+  }
+  .proj-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:36px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .proj-card:hover{border-color:var(--gold); transform:translateY(-3px);}
+  .proj-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .proj-card h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:1.4rem;
+  }
+  .proj-card p{color:var(--ink-dim); font-size:1.01rem; text-align:justify;}
+  .proj-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:4px;
+  }
+  .proj-links a{
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    color:var(--gold);
+    border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .proj-links a:hover{color:var(--gold-bright); border-color:var(--gold-bright);}
+  .proj-status{
+    font-family:'Space Mono', monospace;
+    font-size:0.76rem;
+    color:var(--ink-faint);
+    font-style:italic;
+  }
+  @media (max-width:720px){.proj-grid{grid-template-columns:1fr;}}
+
+  /* ===== certificates ===== */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+  .cert-card{
+    border:1px solid var(--line);
+    background:var(--card);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding:26px;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .cert-card:hover{border-color:var(--gold); transform:translateY(-4px);}
+  .cert-issuer-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .cert-issuer{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .cert-date{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    color:var(--ink-faint);
+  }
+  .cert-card h3{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:1.12rem;
+    color:var(--ink);
+    line-height:1.3;
+  }
+  .cert-skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:auto;
+  }
+  .cert-skill{
+    font-family:'Space Mono', monospace;
+    font-size:0.64rem;
+    color:var(--ink-faint);
+    border:1px solid var(--line);
+    padding:4px 8px;
+    border-radius:2px;
+  }
+  .cert-credential{
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    color:var(--ink-faint);
+  }
+
+  /* ===== currently ===== */
+  .currently-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .currently-item{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    padding:15px 0;
+    transition:padding-left .3s ease;
+  }
+  .currently-item:hover{padding-left:8px;}
+  .currently-pulse{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--green);
+    margin-top:6px;
+    flex-shrink:0;
+    box-shadow:0 0 0 0 rgba(126,196,232,0.5);
+    animation:pulse-dot 2.4s ease-out infinite;
+    transition:background .3s ease, box-shadow .3s ease;
+  }
+  .currently-item:hover .currently-pulse{
+    background:var(--gold);
+    box-shadow:0 0 8px var(--gold), 0 0 16px var(--gold);
+  }
+  @keyframes pulse-dot{
+    0%{box-shadow:0 0 0 0 rgba(126,196,232,0.5);}
+    70%{box-shadow:0 0 0 8px rgba(126,196,232,0);}
+    100%{box-shadow:0 0 0 0 rgba(126,196,232,0);}
+  }
+  .currently-item p{
+    color:var(--ink-dim);
+    font-size:1.01rem;
+    line-height:1.45;
+    text-align:justify;
+    transition:color .25s ease, transform .25s ease;
+  }
+  .currently-item:hover p{color:var(--ink); transform:translateX(3px);}
+
+  .events-block{margin-top:56px;}
+  .events-subhead{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:24px;
+  }
+  .event-entry{
+    padding:26px 0;
+    transition:padding-left .3s ease;
+  }
+  .event-entry:hover{padding-left:10px;}
+  .event-entry:last-child{padding-bottom:0;}
+  .event-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+    margin-bottom:10px;
+  }
+  .event-date{
+    font-family:'Space Mono', monospace;
+    font-size:0.74rem;
+    color:var(--ink-faint);
+  }
+  .event-theme{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .event-title{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:1.2rem;
+    color:var(--ink);
+    margin-bottom:14px;
+    line-height:1.35;
+    transition:color .3s ease;
+  }
+  .event-entry:hover .event-title{color:var(--gold-bright);}
+  .event-points{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .event-points li{
+    color:var(--ink-dim);
+    font-size:0.96rem;
+    padding-left:20px;
+    position:relative;
+    transition:color .25s ease, transform .25s ease;
+  }
+  .event-points li:hover{color:var(--ink); transform:translateX(3px);}
+  .event-points li::before{
+    content:"▪";
+    position:absolute;
+    left:0;
+    color:var(--green);
+    transition:color .25s ease;
+  }
+  .event-points li:hover::before{color:var(--gold-bright); text-shadow:0 0 8px var(--gold), 0 0 16px var(--gold);}
+
+  /* ===== BvA tool ===== */
+  .tool-intro{
+    color:var(--ink-dim);
+    font-size:1rem;
+    max-width:680px;
+    margin-bottom:40px;
+    text-align:justify;
+  }
+  .bva-tool{padding:36px;}
+
+  .bva-summary{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:20px;
+    margin-bottom:28px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--line);
+  }
+  .bva-summary-item{display:flex; flex-direction:column; gap:6px;}
+  .bva-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:28px;
+    padding-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  .bva-threshold-controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+  }
+  .bva-threshold-controls label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .bva-threshold-controls input{
+    width:52px;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    padding:5px 7px;
+    border-radius:2px;
+    text-align:center;
+  }
+  .bva-threshold-controls input:focus{outline:none; border-color:var(--gold);}
+  .bva-export-btn{
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold-bright);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    cursor:pointer;
+    transition:background .25s ease, color .25s ease;
+  }
+  .bva-export-btn:hover{background:var(--gold); color:var(--bg);}
+  .bva-summary-label{
+    font-family:'Space Mono', monospace;
+    font-size:0.64rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .bva-summary-value{
+    font-family:'Newsreader', serif;
+    font-size:1.5rem;
+    color:var(--ink);
+  }
+
+  .bva-row{
+    display:grid;
+    grid-template-columns: 1.9fr 1fr 1fr 1.15fr 1.05fr;
+    gap:14px;
+    align-items:center;
+    padding:11px 0;
+  }
+  .bva-header{
+    font-family:'Space Mono', monospace;
+    font-size:0.64rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    border-bottom:1px solid var(--gold);
+    padding-bottom:12px;
+  }
+  .bva-category{margin-top:6px;}
+  .bva-cat-head{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    padding:18px 0 8px;
+  }
+  .bva-item-row{border-bottom:1px solid var(--line);}
+  .bva-item-label{color:var(--ink-dim); font-size:0.92rem;}
+  .bva-input{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    padding:7px 9px;
+    border-radius:2px;
+    width:100%;
+    text-align:right;
+    transition:border-color .25s ease;
+  }
+  .bva-input:focus{outline:none; border-color:var(--gold); color:var(--ink);}
+  .bva-variance{
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    text-align:right;
+    font-weight:600;
+  }
+  .bva-variance.over{color:#e0694a;}
+  .bva-variance.under{color:#4caf6e;}
+  .bva-variance.flat{color:var(--ink-faint);}
+
+  .bva-status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'Space Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .bva-status-pill .bva-dot{width:6px; height:6px; border-radius:50%; display:inline-block;}
+  .bva-status-pill.ontrack{color:#4caf6e; border-color:rgba(76,175,110,0.4);}
+  .bva-status-pill.ontrack .bva-dot{background:#4caf6e;}
+  .bva-status-pill.monitor{color:#f5a623; border-color:rgba(245,166,35,0.4);}
+  .bva-status-pill.monitor .bva-dot{background:#f5a623;}
+  .bva-status-pill.review{color:#e0694a; border-color:rgba(224,105,74,0.4);}
+  .bva-status-pill.review .bva-dot{background:#e0694a;}
+
+  .bva-subtotal{
+    font-weight:600;
+    color:var(--ink);
+    border-top:1px solid var(--line);
+    border-bottom:none;
+    margin-top:2px;
+  }
+  .bva-subtotal span:first-child{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+
+  .bva-add-btn{
+    background:transparent;
+    border:1px dashed var(--line);
+    color:var(--ink-faint);
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:8px 14px;
+    margin-top:12px;
+    cursor:pointer;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .bva-add-btn:hover{border-color:var(--gold); color:var(--gold-bright);}
+
+  .bva-grand-total{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:2px solid var(--gold);
+    font-family:'Newsreader', serif;
+    font-size:1.1rem;
+    color:var(--gold-bright);
+  }
+  .bva-grand-total span:first-child{
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .bva-grand-total > span:not(:first-child){text-align:right; font-size:0.95rem;}
+
+  .bva-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    color:var(--ink-faint);
+  }
+  .bva-legend span{display:flex; align-items:center; gap:7px;}
+  .bva-dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+  .bva-dot.ontrack{background:#4caf6e;}
+  .bva-dot.monitor{background:#f5a623;}
+  .bva-dot.review{background:#e0694a;}
+
+  .bva-chart{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:34px;
+  }
+  .bva-bar-row{display:flex; flex-direction:column; gap:5px;}
+  .bva-bar-label{
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+  }
+  .bva-bar-track{
+    position:relative;
+    height:8px;
+    background:var(--line);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .bva-bar-fill{
+    position:absolute;
+    top:0; left:0; height:100%;
+    background:linear-gradient(to right, var(--green), var(--gold));
+    border-radius:2px;
+    transition:width .5s cubic-bezier(.16,1,.3,1);
+  }
+  .bva-bar-actual-marker{
+    position:absolute;
+    top:-3px;
+    width:2px; height:14px;
+    background:var(--gold-bright);
+    transition:left .5s cubic-bezier(.16,1,.3,1);
+  }
+
+  @media (max-width:820px){
+    .bva-summary{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:720px){
+    .bva-row{grid-template-columns:1fr; gap:6px; text-align:left; padding:14px 0;}
+    .bva-header{display:none;}
+    .bva-input, .bva-variance{text-align:left;}
+    .bva-grand-total > span:not(:first-child){text-align:left;}
+  }
+  @media (max-width:720px){.cert-grid{grid-template-columns:1fr;}}
+
+  /* ===== contact ===== */
+  .contact-inner{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+  }
+  .contact-inner h2{
+    font-family:'Newsreader', serif;
+    font-weight:400;
+    font-size:clamp(2rem, 5vw, 3.4rem);
+    line-height:1.08;
+  }
+  .contact-inner h2 em{font-style:italic; color:var(--gold);}
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    padding-bottom:16px;
+    transition:padding-left .3s ease;
+  }
+  .contact-row:hover{padding-left:8px;}
+  .contact-row .label{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .contact-row .val{
+    font-family:'Space Mono', monospace;
+    font-size:0.9rem;
+    white-space:nowrap;
+  }
+  .contact-row a.val:hover{color:var(--gold-bright);}
+  @media (max-width:520px){.contact-row{flex-direction:column; align-items:flex-start; gap:6px;} .contact-row .val{white-space:normal; word-break:break-word;}}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:34px 0;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<svg class="site-ribbon" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="ribbonGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4fa8d8" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#4fa8d8" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.75"/>
+      <stop offset="80%" stop-color="#4fa8d8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#4fa8d8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path id="ribbonPath" class="ribbon-glow" d="M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760">
+    <animate attributeName="d" dur="13s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+      values="M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760;
+              M300,-40 C180,90 400,180 300,300 C200,420 400,480 300,600 C230,670 340,700 300,760;
+              M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760"/>
+  </path>
+  <path class="ribbon-line" d="M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760">
+    <animate attributeName="d" dur="13s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+      values="M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760;
+              M300,-40 C180,90 400,180 300,300 C200,420 400,480 300,600 C230,670 340,700 300,760;
+              M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760"/>
+  </path>
+  <circle class="ribbon-dot" r="3.5" fill="#ffffff">
+    <animate attributeName="opacity" values="0.15;0.85;0.15" dur="4s" repeatCount="indefinite"/>
+    <animateMotion dur="13s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+      path="M300,-40 C420,90 200,180 300,300 C400,420 200,480 300,600 C370,670 260,700 300,760"/>
+  </circle>
+</svg>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-mark">S<span>B</span></div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#currently">Currently</a>
+      <a href="#tool">Tool</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Sagun <em>Basnet</em></h1>
+    <p class="role-line">I'm a Finance and Compliance Professional with a few years of experience across international and national not-for-profit organizations. I work closely with youth groups, hold a keen interest in governance and public policy, and bring hands-on experience in Disaster Risk Reduction (DRR), climate finance and green finance. Engaging with young people and the causes they care about is where I feel most at home.</p>
+    <div class="meta-row">
+      <div class="meta-item glow-divider">
+        <span class="label">Focus</span>
+        <span class="val">Accounting, Finance, Compliance &amp; Operations</span>
+      </div>
+      <div class="meta-item glow-divider">
+        <span class="label">Status</span>
+        <span class="val">ACCA Finalist</span>
+      </div>
+      <div class="meta-item glow-divider">
+        <span class="label">Contact</span>
+        <a class="val" href="mailto:shagunbasnet07@gmail.com">shagunbasnet07@gmail.com</a>
+      </div>
+    </div>
+    <a class="resume-btn" href="resume.pdf" download>Download Resume <span class="resume-btn-arrow">↓</span></a>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p><strong>Progressive finance experience</strong> in international NGOs, with direct exposure to internal audits, audit documentation and donor-funded programme finance at HHRD USA/Nepal.</p>
+        <p>Works closely with Local Implementing Partners, banks, auditors and programme teams to keep financial records accurate and compliant, <strong>verifying Project Completion Reports</strong> and original invoices against finalized proposals and MoUs, and checking cost allowability against donor, national government and SWC terms.</p>
+        <p>Has moved across <strong>four accounting and ERP systems</strong> (Xledger, SUN Systems, Tally and QuickBooks), adapting quickly to each, with a client-oriented approach and consistent accuracy under audit and donor scrutiny.</p>
+      </div>
+      <div class="lang-list systems-card">
+        <h4>Languages</h4>
+        <div class="lang-row glow-divider"><span>English</span><span class="level">Fluent, Verbal &amp; Written</span></div>
+        <div class="lang-row glow-divider"><span>Nepali</span><span class="level">Native, Verbal &amp; Written</span></div>
+        <div class="lang-row glow-divider"><span>Hindi</span><span class="level">Fluent, Verbal</span></div>
+        <div class="lang-row glow-divider"><span>French</span><span class="level">Beginner, Listening</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Experience</h2>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-period">Oct 2024 to Present</div>
+      <div>
+        <div class="exp-role">Founder</div>
+        <div class="exp-org">PoliNomics</div>
+        <ul>
+          <li>Founded <strong>PoliNomics</strong>, a finance content platform making complex economic and public-policy topics accessible to general audiences.</li>
+          <li>Publishes analysis spanning <strong>governance, civic engagement and everyday economics</strong> across Instagram (@polinomics_) and LinkedIn (@PoliNomics).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-period">Nov 2024 to Present</div>
+      <div>
+        <div class="exp-role">Accounts and Finance Assistant</div>
+        <div class="exp-org">Helping Hand for Relief and Development (HHRD) USA/Nepal <span class="place">· Baluwatar, Kathmandu</span></div>
+        <ul>
+          <li>Conducted <strong>bi-annual internal audits</strong>, including preparation of audit documentation, audit schedules and audit trails.</li>
+          <li>Verified LIPs' <strong>Project Completion Reports</strong> and original invoices against finalized project proposals and MoUs to confirm field-implemented projects match proposals and compliance requirements.</li>
+          <li>Reviewed <strong>Local Implementing Partner financial reports</strong> for completeness and compliance with organizational, national and donor requirements, following up directly with partner focal persons on documentation gaps.</li>
+          <li>Reviewed and processed staff <strong>travel claims</strong> against organizational field-visit policies, verifying supporting documentation and ensuring proper settlements.</li>
+          <li>Prepared and processed <strong>payment vouchers, vendor invoices, staff claims and journal entries</strong> in Xledger and Tally, coding charges to the correct Chart of Accounts.</li>
+          <li>Performed <strong>monthly account reconciliations</strong> and supported VAT-related recordkeeping as part of statutory compliance.</li>
+          <li>Produced periodic management reports, including <strong>budget variance analysis and financial dashboards</strong>, supporting monthly, quarterly and annual reporting for management and donor review.</li>
+          <li>Contributed to <strong>annual budget planning</strong>, feeding prior-year utilization and forecasting into incremental cost estimates.</li>
+          <li>Maintained organized, <strong>audit-ready filing</strong> and e-filing of vouchers, agreements and project files.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-entry">
+      <div class="exp-period">Feb 2024 to Aug 2024</div>
+      <div>
+        <div class="exp-role">Finance and Grants &amp; Compliance Trainee</div>
+        <div class="exp-org">ActionAid International UK/Nepal <span class="place">· Lazimpat, Kathmandu</span></div>
+        <ul>
+          <li>Co-reviewed <strong>LIP periodic reports</strong>, classifying project costs as allowable or disallowed against donor and organizational policy.</li>
+          <li>Prepared and submitted <strong>statutory tax documentation</strong>, including E-TDS payment reports for annual tax clearance per Nepal IRD standards.</li>
+          <li>Acted as sole custodian of <strong>petty cash funds</strong>, conducting bi-monthly cash counts and reconciliations.</li>
+          <li>Liaised with bank counterparts on <strong>incoming international remittances</strong> and grant fund transfers, and with the Inland Revenue Department on annual tax clearance and staff-related tax matters.</li>
+          <li>Processed vendor invoices and verified bills against financial and procurement policy; monitored <strong>staff advances</strong> in SUN Systems for timely, compliant clearance.</li>
+          <li>Maintained financial documentation and archives to support <strong>audit readiness</strong> and grants compliance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Skills &amp; Systems</h2>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-tags">
+        <span class="skill-tag">Internal Audit Execution</span>
+        <span class="skill-tag">Audit Schedules &amp; Trails</span>
+        <span class="skill-tag">PCR Verification vs MoU</span>
+        <span class="skill-tag">Cost Allowability Review</span>
+        <span class="skill-tag">Donor / National / SWC Compliance</span>
+        <span class="skill-tag">LIP Financial Report Review</span>
+        <span class="skill-tag">Statutory Tax Compliance (E-TDS)</span>
+        <span class="skill-tag">Nepal IRD Regulations</span>
+        <span class="skill-tag">Accounts &amp; Bank Reconciliation</span>
+        <span class="skill-tag">Petty Cash Custodianship</span>
+        <span class="skill-tag">Bi-Monthly Cash Counts</span>
+        <span class="skill-tag">Budget Variance Analysis</span>
+        <span class="skill-tag">Budget vs Actual (BvA) Reporting</span>
+        <span class="skill-tag">Management Dashboards</span>
+        <span class="skill-tag">Donor Compliance &amp; Grant Reporting</span>
+        <span class="skill-tag">Travel Claim Verification</span>
+        <span class="skill-tag">Vendor &amp; Procurement Coordination</span>
+        <span class="skill-tag">Report Writing</span>
+        <span class="skill-tag">Cross-Team &amp; Partner Communication</span>
+        <span class="skill-tag">Climate Finance</span>
+        <span class="skill-tag">Green Finance</span>
+        <span class="skill-tag">Sustainable Finance</span>
+        <span class="skill-tag">Carbon Trading &amp; Carbon Markets</span>
+        <span class="skill-tag">Proposal Writing</span>
+      </div>
+      <div class="systems-card">
+        <h4>ERP &amp; Financial Systems</h4>
+        <div class="sys-row glow-divider"><span>Advanced Microsoft Excel</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>Power BI</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>SUN Systems</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>Tally</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>QuickBooks</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>Odoo</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>MS Suite</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>Xledger</span><span class="dot">●</span></div>
+        <div class="sys-row glow-divider"><span>Python</span><span class="dot">●</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="currently">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">What Am I <em>Up To These Days</em></h2>
+    </div>
+    <div class="currently-list">
+      <div class="currently-item glow-divider">
+        <span class="currently-pulse"></span>
+        <p>Working on building youth networks engaged in the not-for-profit sector.</p>
+      </div>
+      <div class="currently-item glow-divider">
+        <span class="currently-pulse"></span>
+        <p>Collaboratively building YDRR, a youth forum platform for Youth in Disaster Risk Reduction.</p>
+      </div>
+      <div class="currently-item glow-divider">
+        <span class="currently-pulse"></span>
+        <p>Engaged with an NPO operating on direct US philanthropic funds at HHRD USA/Nepal, directly supporting community resilience projects across 7+ districts of Nepal.</p>
+      </div>
+      <div class="currently-item glow-divider">
+        <span class="currently-pulse"></span>
+        <p>Serving part-time as a Financial Consultant at Youth in Federal Discourse (YFD), supporting finance and procurement duties on the CON-COURSE project, funded by International IDEA.</p>
+      </div>
+    </div>
+
+    <div class="events-block">
+      <h3 class="events-subhead">Recent Events</h3>
+
+      <div class="event-entry glow-divider">
+        <div class="event-meta">
+          <span class="event-date">15&ndash;17 Aug 2026</span>
+          <span class="event-theme">EU Youth Sounding Board &middot; Governance Theme</span>
+        </div>
+        <h4 class="event-title">Samabesi Yuva Sansad (Inclusive Youth Model Provincial Parliament)</h4>
+        <ul class="event-points">
+          <li>Gained an in-depth, hands-on understanding of how parliamentary sessions are conducted through a Model Provincial Parliament simulation.</li>
+          <li>Connected with a wide range of youth voices from diverse fields of expertise over the three-day programme.</li>
+          <li>Conducted elaborate discussions on the participation of Persons with Disabilities (PWDs) and Gender Equality, Disability and Social Inclusion (GEDSI) in national-level policy documents, alongside law and advocacy experts.</li>
+          <li>Was awarded with the <strong>Best Leadership Award</strong> at the event.</li>
+        </ul>
+      </div>
+
+      <div class="event-entry glow-divider">
+        <div class="event-meta">
+          <span class="event-date">11 Sept 2026</span>
+          <span class="event-theme">EU Youth Sounding Board &middot; Climate Theme</span>
+        </div>
+        <h4 class="event-title">Roundtable: Climate Resilience through Technology, Enterprise and Sustainable Finance in Nepal</h4>
+        <ul class="event-points">
+          <li>Participated in a roundtable discussion on climate resilience through technology, enterprise and sustainable finance in Nepal.</li>
+          <li>Engaged with policymakers, technologists and finance practitioners on tools and mechanisms that strengthen climate resilience.</li>
+          <li>Brought a finance and compliance lens to discussions on scaling climate-resilient enterprise solutions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tool">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Budget Variance <em>Analysis</em></h2>
+    </div>
+    <p class="tool-intro">A Budget vs Actual (BvA) report in the format used for donor and management reporting on development programmes, grouped by budget category, with variance thresholds flagged automatically. Figures are illustrative; edit them to see the report recalculate.</p>
+
+    <div class="bva-tool systems-card">
+      <div class="bva-summary">
+        <div class="bva-summary-item">
+          <span class="bva-summary-label">Total Budget</span>
+          <span class="bva-summary-value" id="bvaSumBudget"></span>
+        </div>
+        <div class="bva-summary-item">
+          <span class="bva-summary-label">Total Actual</span>
+          <span class="bva-summary-value" id="bvaSumActual"></span>
+        </div>
+        <div class="bva-summary-item">
+          <span class="bva-summary-label">Utilization Rate</span>
+          <span class="bva-summary-value" id="bvaSumUtil"></span>
+        </div>
+        <div class="bva-summary-item">
+          <span class="bva-summary-label">Overall Variance</span>
+          <span class="bva-summary-value" id="bvaSumVariance"></span>
+        </div>
+        <div class="bva-summary-item">
+          <span class="bva-summary-label">Available Balance</span>
+          <span class="bva-summary-value" id="bvaSumBalance"></span>
+        </div>
+      </div>
+
+      <div class="bva-controls">
+        <div class="bva-threshold-controls">
+          <label>Monitor threshold <input type="number" id="bvaMonitorThreshold" value="5" min="1" max="50">%</label>
+          <label>Review threshold <input type="number" id="bvaReviewThreshold" value="15" min="1" max="50">%</label>
+        </div>
+        <button type="button" class="bva-export-btn" id="bvaExportBtn">Export CSV ↓</button>
+      </div>
+
+      <div class="bva-row bva-header">
+        <span>Budget Line</span>
+        <span>Budget (NPR)</span>
+        <span>Actual (NPR)</span>
+        <span>Variance</span>
+        <span>Status</span>
+      </div>
+
+      <div id="bvaBody"></div>
+
+      <div class="bva-row bva-grand-total">
+        <span>Grand Total</span>
+        <span id="bvaGrandBudget"></span>
+        <span id="bvaGrandActual"></span>
+        <span id="bvaGrandVariance"></span>
+        <span id="bvaGrandStatus"></span>
+      </div>
+
+      <div class="bva-legend">
+        <span><i class="bva-dot ontrack"></i><span id="bvaLegendOnTrack">On Track (within &plusmn;5%)</span></span>
+        <span><i class="bva-dot monitor"></i><span id="bvaLegendMonitor">Monitor (&plusmn;5&ndash;15%)</span></span>
+        <span><i class="bva-dot review"></i><span id="bvaLegendReview">Review Required (beyond &plusmn;15%)</span></span>
+      </div>
+
+      <div class="bva-chart" id="bvaChart"></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Education</h2>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item glow-divider">
+        <div class="edu-year">2022 to Present</div>
+        <div>
+          <div class="edu-name">ACCA Finalist, Accounting &amp; Finance</div>
+          <div class="edu-inst">ACCA Global, United Kingdom</div>
+        </div>
+      </div>
+      <div class="edu-item glow-divider">
+        <div class="edu-year">2024 to Present</div>
+        <div>
+          <div class="edu-name">B.Sc. (Hons) in Applied Accounting</div>
+          <div class="edu-inst">Oxford Brookes University, United Kingdom</div>
+        </div>
+      </div>
+      <div class="edu-item glow-divider">
+        <div class="edu-year">2023 to Present</div>
+        <div>
+          <div class="edu-name">Bachelor's of Business Studies (BBS)</div>
+          <div class="edu-inst">Tribhuwan University, Kathmandu, Nepal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">Writing &amp; Projects</h2>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <span class="proj-tag">Platform</span>
+        <h3>PoliNomics</h3>
+        <p>A finance content platform focused on making complex economic and public-policy topics accessible to general audiences, spanning governance, civic engagement and everyday economics.</p>
+        <div class="proj-links">
+          <a href="https://www.instagram.com/polinomics_/" target="_blank" rel="noopener">Instagram @polinomics_</a>
+          <a href="https://www.linkedin.com/company/polinomics" target="_blank" rel="noopener">LinkedIn @PoliNomics</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">Newsletter</span>
+        <h3>Substack</h3>
+        <p>A newsletter built around the same finance and public-policy interests behind PoliNomics.</p>
+        <div class="proj-links">
+          <a href="https://sagunbasnet.substack.com" target="_blank" rel="noopener">@sagunbasnet</a>
+        </div>
+        <span class="proj-status">Currently working on the concept</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 class="sec-title">Certificates &amp; <em>Awards</em></h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-issuer-row">
+          <span class="cert-issuer">IBM</span>
+          <span class="cert-date">Aug 2025</span>
+        </div>
+        <h3>Python for Data Science, AI &amp; Development</h3>
+        <div class="cert-skills">
+          <span class="cert-skill">Data Science</span>
+          <span class="cert-skill">Python Programming</span>
+        </div>
+        <span class="cert-credential">Credential ID UIV5JLXTF7YD</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer-row">
+          <span class="cert-issuer">ActionAid</span>
+          <span class="cert-date">Sept 2024</span>
+        </div>
+        <h3>SHEA &amp; Safeguarding</h3>
+        <div class="cert-skills">
+          <span class="cert-skill">PSEA</span>
+          <span class="cert-skill">Safeguarding</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer-row">
+          <span class="cert-issuer">UN SDG Finance Academy</span>
+          <span class="cert-date">Nov 2025</span>
+        </div>
+        <h3>Introduction to Sustainable Finance &amp; the SDG Finance Academy</h3>
+        <div class="cert-skills">
+          <span class="cert-skill">Sustainable Finance</span>
+          <span class="cert-skill">Resilience Funding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">09</span>
+      <h2 class="sec-title">Contact</h2>
+    </div>
+    <div class="contact-inner">
+      <h2>Let's talk<br><em>numbers.</em></h2>
+      <div class="contact-list systems-card">
+        <div class="contact-row glow-divider">
+          <span class="label">Email</span>
+          <a class="val" href="mailto:shagunbasnet07@gmail.com">shagunbasnet07@gmail.com</a>
+        </div>
+        <div class="contact-row glow-divider">
+          <span class="label">LinkedIn</span>
+          <a class="val" href="https://www.linkedin.com/in/basnet-sagun/" target="_blank" rel="noopener">linkedin.com/in/basnet-sagun</a>
+        </div>
+        <div class="contact-row glow-divider">
+          <span class="label">Location</span>
+          <span class="val">Kathmandu, Nepal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>© <span id="year"></span> Sagun Basnet</span>
+    <span>basnetsagun.com.np</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll progress bar
+  const progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // Nav shadow on scroll
+  const nav = document.querySelector('.site-nav');
+  function updateNav(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', updateNav, {passive:true});
+  updateNav();
+
+  // Staggered child reveal within sections
+  const staggerSelectors = '.exp-entry li, .skill-tag, .proj-card, .edu-item, .lang-row, .sys-row, .cert-card, .contact-row, .currently-item, .event-entry';
+  document.querySelectorAll('section').forEach(section=>{
+    const items = section.querySelectorAll(staggerSelectors);
+    items.forEach((el, i)=>{
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = `opacity .6s cubic-bezier(.16,1,.3,1) ${(i % 12) * 0.06}s, transform .6s cubic-bezier(.16,1,.3,1) ${(i % 12) * 0.06}s`;
+    });
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        const staggered = e.target.querySelectorAll(staggerSelectors);
+        staggered.forEach(el=>{
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+        setTimeout(()=>{
+          staggered.forEach(el=>{ el.style.transition = ''; });
+        }, 1200);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.1});
+  reveals.forEach(el=>io.observe(el));
+
+  // Budget vs Actual (BvA) tool: INGO-style grouped report
+  const bvaData = [
+    {
+      id: 'programme',
+      category: 'Programme Costs',
+      items: [
+        { label: 'Sub-Grants to Implementing Partners (LIPs)', budget: 620000, actual: 598500 },
+        { label: 'Direct Programme Activities', budget: 340000, actual: 365200 },
+        { label: 'Training &amp; Capacity Building', budget: 150000, actual: 162800 },
+        { label: 'Monitoring &amp; Evaluation', budget: 95000, actual: 88300 }
+      ]
+    },
+    {
+      id: 'operations',
+      category: 'Operations &amp; Administration',
+      items: [
+        { label: 'Personnel Costs', budget: 410000, actual: 404600 },
+        { label: 'Travel &amp; Field Visits', budget: 110000, actual: 97250 },
+        { label: 'Office &amp; Admin Overheads', budget: 75000, actual: 83400 },
+        { label: 'Equipment &amp; Supplies', budget: 48000, actual: 51200 }
+      ]
+    }
+  ];
+
+  const bvaBody = document.getElementById('bvaBody');
+  const bvaChartEl = document.getElementById('bvaChart');
+  const monitorThresholdInput = document.getElementById('bvaMonitorThreshold');
+  const reviewThresholdInput = document.getElementById('bvaReviewThreshold');
+
+  function fmt(n){ return Math.round(n).toLocaleString(); }
+
+  function bvaStatus(pct){
+    const a = Math.abs(pct);
+    const monitorT = parseFloat(monitorThresholdInput.value) || 5;
+    const reviewT = parseFloat(reviewThresholdInput.value) || 15;
+    if(a <= monitorT) return {cls:'ontrack', label:'On Track'};
+    if(a <= reviewT) return {cls:'monitor', label:'Monitor'};
+    return {cls:'review', label:'Review Required'};
+  }
+
+  function statusPillHTML(pct){
+    const s = bvaStatus(pct);
+    return '<span class="bva-status-pill ' + s.cls + '"><span class="bva-dot"></span>' + s.label + '</span>';
+  }
+
+  function buildTable(){
+    bvaBody.innerHTML = '';
+    bvaData.forEach(cat=>{
+      const catWrap = document.createElement('div');
+      catWrap.className = 'bva-category';
+      catWrap.innerHTML = '<div class="bva-cat-head">' + cat.category + '</div>';
+
+      const itemsWrap = document.createElement('div');
+      itemsWrap.dataset.catItems = cat.id;
+
+      cat.items.forEach((item, idx)=>{
+        const row = document.createElement('div');
+        row.className = 'bva-row bva-item-row';
+        row.dataset.cat = cat.id;
+        row.dataset.idx = idx;
+        row.innerHTML =
+          '<span class="bva-item-label">' + item.label + '</span>' +
+          '<input type="number" class="bva-input bva-budget" value="' + item.budget + '">' +
+          '<input type="number" class="bva-input bva-actual" value="' + item.actual + '">' +
+          '<span class="bva-variance"></span>' +
+          '<span class="bva-status"></span>';
+        itemsWrap.appendChild(row);
+      });
+      catWrap.appendChild(itemsWrap);
+
+      const subtotal = document.createElement('div');
+      subtotal.className = 'bva-row bva-subtotal';
+      subtotal.dataset.subtotalFor = cat.id;
+      subtotal.innerHTML =
+        '<span>Subtotal: ' + cat.category + '</span>' +
+        '<span class="bva-sub-budget"></span>' +
+        '<span class="bva-sub-actual"></span>' +
+        '<span class="bva-sub-variance"></span>' +
+        '<span class="bva-sub-status"></span>';
+      catWrap.appendChild(subtotal);
+
+      const addBtn = document.createElement('button');
+      addBtn.type = 'button';
+      addBtn.className = 'bva-add-btn';
+      addBtn.dataset.addCat = cat.id;
+      addBtn.textContent = '+ Add Line';
+      catWrap.appendChild(addBtn);
+
+      bvaBody.appendChild(catWrap);
+    });
+
+    bvaBody.querySelectorAll('.bva-input').forEach(input=>{
+      input.addEventListener('input', recompute);
+    });
+    bvaBody.querySelectorAll('.bva-add-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const catId = btn.dataset.addCat;
+        const cat = bvaData.find(c=>c.id === catId);
+        cat.items.push({ label: 'New Line Item', budget: 0, actual: 0 });
+        buildTable();
+        recompute();
+      });
+    });
+  }
+
+  function renderBvaChart(allItems){
+    bvaChartEl.innerHTML = '';
+    allItems.forEach(({label, budget, actual})=>{
+      const maxVal = Math.max(budget, actual, 1) * 1.15;
+      const actualPct = (actual / maxVal) * 100;
+      const budgetPct = (budget / maxVal) * 100;
+      const over = actual > budget;
+      const barRow = document.createElement('div');
+      barRow.className = 'bva-bar-row';
+      barRow.innerHTML =
+        '<div class="bva-bar-label"><span>' + label + '</span><span>' + fmt(actual) + ' / ' + fmt(budget) + '</span></div>' +
+        '<div class="bva-bar-track">' +
+          '<div class="bva-bar-fill" style="width:' + actualPct + '%; background:' + (over ? 'linear-gradient(to right, #4caf6e, #e0694a)' : 'linear-gradient(to right, #4caf6e, var(--gold))') + '"></div>' +
+          '<div class="bva-bar-actual-marker" style="left:' + budgetPct + '%"></div>' +
+        '</div>';
+      bvaChartEl.appendChild(barRow);
+    });
+  }
+
+  function recompute(){
+    let grandBudget = 0, grandActual = 0;
+    const allItems = [];
+
+    bvaData.forEach(cat=>{
+      let subBudget = 0, subActual = 0;
+      const rows = bvaBody.querySelectorAll('[data-cat="' + cat.id + '"]');
+      rows.forEach(row=>{
+        const idx = +row.dataset.idx;
+        const budget = parseFloat(row.querySelector('.bva-budget').value) || 0;
+        const actual = parseFloat(row.querySelector('.bva-actual').value) || 0;
+        cat.items[idx].budget = budget;
+        cat.items[idx].actual = actual;
+        subBudget += budget;
+        subActual += actual;
+        allItems.push({label: cat.items[idx].label.replace(/&amp;/g,'&'), budget, actual});
+
+        const variance = actual - budget;
+        const pct = budget !== 0 ? (variance / budget * 100) : 0;
+        const sign = variance > 0 ? '+' : '';
+        const varEl = row.querySelector('.bva-variance');
+        varEl.textContent = sign + fmt(variance) + ' (' + sign + pct.toFixed(1) + '%)';
+        varEl.classList.remove('over','under','flat');
+        varEl.classList.add(variance === 0 ? 'flat' : (variance > 0 ? 'over' : 'under'));
+        row.querySelector('.bva-status').innerHTML = statusPillHTML(pct);
+      });
+
+      const subVariance = subActual - subBudget;
+      const subPct = subBudget !== 0 ? (subVariance / subBudget * 100) : 0;
+      const subSign = subVariance > 0 ? '+' : '';
+      const subtotalRow = bvaBody.querySelector('[data-subtotal-for="' + cat.id + '"]');
+      subtotalRow.querySelector('.bva-sub-budget').textContent = fmt(subBudget);
+      subtotalRow.querySelector('.bva-sub-actual').textContent = fmt(subActual);
+      subtotalRow.querySelector('.bva-sub-variance').textContent = subSign + fmt(subVariance) + ' (' + subSign + subPct.toFixed(1) + '%)';
+      subtotalRow.querySelector('.bva-sub-status').innerHTML = statusPillHTML(subPct);
+
+      grandBudget += subBudget;
+      grandActual += subActual;
+    });
+
+    const grandVariance = grandActual - grandBudget;
+    const grandPct = grandBudget !== 0 ? (grandVariance / grandBudget * 100) : 0;
+    const gSign = grandVariance > 0 ? '+' : '';
+
+    document.getElementById('bvaSumBudget').textContent = 'NPR ' + fmt(grandBudget);
+    document.getElementById('bvaSumActual').textContent = 'NPR ' + fmt(grandActual);
+    document.getElementById('bvaSumUtil').textContent = (grandBudget !== 0 ? (grandActual / grandBudget * 100).toFixed(1) : '0.0') + '%';
+    const sumVarEl = document.getElementById('bvaSumVariance');
+    sumVarEl.textContent = gSign + fmt(grandVariance) + ' (' + gSign + grandPct.toFixed(1) + '%)';
+    sumVarEl.style.color = grandVariance === 0 ? 'var(--ink)' : (grandVariance > 0 ? '#c77b5a' : 'var(--green)');
+
+    document.getElementById('bvaGrandBudget').textContent = fmt(grandBudget);
+    document.getElementById('bvaGrandActual').textContent = fmt(grandActual);
+    document.getElementById('bvaGrandVariance').textContent = gSign + fmt(grandVariance) + ' (' + gSign + grandPct.toFixed(1) + '%)';
+    document.getElementById('bvaGrandStatus').innerHTML = statusPillHTML(grandPct);
+
+    const balance = grandBudget - grandActual;
+    const balEl = document.getElementById('bvaSumBalance');
+    balEl.textContent = 'NPR ' + fmt(Math.abs(balance)) + (balance < 0 ? ' overspent' : ' remaining');
+    balEl.style.color = balance < 0 ? '#c77b5a' : 'var(--green)';
+
+    updateThresholdLegend();
+    renderBvaChart(allItems);
+    window._bvaExportData = { bvaData, grandBudget, grandActual, grandVariance, grandPct };
+  }
+
+  function updateThresholdLegend(){
+    const monitorT = parseFloat(monitorThresholdInput.value) || 5;
+    const reviewT = parseFloat(reviewThresholdInput.value) || 15;
+    document.getElementById('bvaLegendOnTrack').textContent = 'On Track (within ±' + monitorT + '%)';
+    document.getElementById('bvaLegendMonitor').textContent = 'Monitor (±' + monitorT + '–' + reviewT + '%)';
+    document.getElementById('bvaLegendReview').textContent = 'Review Required (beyond ±' + reviewT + '%)';
+  }
+
+  monitorThresholdInput.addEventListener('input', recompute);
+  reviewThresholdInput.addEventListener('input', recompute);
+
+  document.getElementById('bvaExportBtn').addEventListener('click', ()=>{
+    const rows = [['Category','Budget Line','Budget (NPR)','Actual (NPR)','Variance (NPR)','Variance (%)','Status']];
+    bvaData.forEach(cat=>{
+      cat.items.forEach(item=>{
+        const variance = item.actual - item.budget;
+        const pct = item.budget !== 0 ? (variance / item.budget * 100) : 0;
+        rows.push([cat.category.replace(/&amp;/g,'&'), item.label.replace(/&amp;/g,'&'), item.budget, item.actual, variance, pct.toFixed(1), bvaStatus(pct).label]);
+      });
+    });
+    const csv = rows.map(r=>r.map(v=>'"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\n');
+    const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'budget-variance-report.csv';
+    link.click();
+  });
+
+  buildTable();
+  recompute();
+
+  // Smooth-scroll nav links with easing (native scroll-behavior already set, this adds active-state polish)
+  document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
